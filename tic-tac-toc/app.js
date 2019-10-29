@@ -13,7 +13,8 @@ function clickme(elem) {
     
     var id = $(elem).attr("id");
     var buttonText = $('#' + id).text(); 
-    if(buttonText === '0' ) {
+     
+    if(buttonText === '-' ) {
         playTimes++; 
         if(player ){
             $('#' + id).text('X'); 
@@ -25,6 +26,7 @@ function clickme(elem) {
     }
     else{
         alert("choose an empty box.");
+        
     }
     var board = getTexts();
     // check if there any winner 
@@ -46,7 +48,7 @@ function rules (board){
         // row 0 
         for (var i = 0 ; i < 3 ; i++){
             
-            if (board[i][0] === board[i][1] &&  board[i][1] ===board[i][2] && board[i][2] !=='0'){
+            if (board[i][0] === board[i][1] &&  board[i][1] ===board[i][2] && board[i][2] !=='-'){
                 return true ; 
             }
         }
@@ -54,16 +56,16 @@ function rules (board){
     }
     var checkColons = function(board){
         for (var i = 0 ; i < 3 ; i++){
-            if (board[0][i] === board[1][i] &&  board[1][i] === board[2][i] && board[2][i] !=='0'){
+            if (board[0][i] === board[1][i] &&  board[1][i] === board[2][i] && board[2][i] !=='-'){
                 return true ; 
             }
         }
         return false; 
     }
     var checkDiagonal = function(board){
-        if (board[0][0] === board[1][1]  && board[1][1] === board[2][2] && board[2][2] !=='0'){
+        if (board[0][0] === board[1][1]  && board[1][1] === board[2][2] && board[2][2] !=='-'){
             return true ; 
-        }else if (board[2][0] === board[1][1]  && board[1][1]=== board[0][2] && board[0][2] !=='0' ){
+        }else if (board[2][0] === board[1][1]  && board[1][1]=== board[0][2] && board[0][2] !=='-' ){
             return true ; 
         }
 
